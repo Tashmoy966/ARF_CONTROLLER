@@ -13,10 +13,10 @@ source devel/setup.bash
 
 **Note:** Either put it permanently in bashrc or source it for every new terminal opened.
 
-# Clone this repository in your workspace source file
+# Clone this repository in your workspace source folder
 git clone https://github.com/Tashmoy966/ARF_CONTROLLER.git
 
-# Clone the official volta ROS package into your source file
+# Clone the official volta ROS package into your source folder
 
 **Note:** Its better to keep every thing in a common directory eg volta
 
@@ -33,4 +33,29 @@ Start the roscore
 **Start the ARF controller** :rosrun airl_mrs apf_controller.py --goal_center 10.0 10.0
 
 
+
+**Note**: Due to ros distro version conflicts sometimes control spawner doesn't works for simulating volta robot in Gazebo 
+
+An alternative is to use other robot models to testing 
+
+**Turtelbot3** can be used:
+
+# Installing Tb3 ROS Packages to your source folder
+
+git clone https://github.com/ROBOTIS-GIT/turtlebot3.git
+
+git clone https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
+
+git clone https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git
+
+# Build Your Workspace
+catkin_make
+
+# Launch the Multi Robot System
+
+Start the roscore
+
+**Launching MRS Group** : roslaunch airl_mrs main.launch
+
+**Start the ARF controller** :rosrun airl_mrs apf_controller.py --goal_center 10.0 10.0
 
