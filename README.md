@@ -24,6 +24,9 @@ git clone https://github.com/botsync/volta.git
 
 git cone https://github.com/botsync/volta_simulation.git (Simulation Essentials)
 
+# Build Your Workspace
+catkin_make
+
 # Launch the Multi Robot System
 
 Start the roscore
