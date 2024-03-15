@@ -1,0 +1,29 @@
+<launch>
+  <param name="/use_sim_time" value="true" />
+
+  <!-- start world -->
+  <node name="gazebo" pkg="gazebo_ros" type="gzserver" 
+   args="$(find turtlebot3_gazebo)/worlds/empty_world.world" respawn="false" output="screen" />
+
+  <!-- start gui -->
+  <node name="gazebo_gui" pkg="gazebo_ros" type="gzclient" respawn="false" output="screen"/>
+
+  <!-- include our robots -->
+  <include file="$(find airl_mrs)/launch/multi.launch"/>
+
+  <!-- <arg name="gc" default="10.0"/>
+  <node pkg="airl_mrs" type="apf_controller.py" name="apf" args="goal_center=$(arg gc)" output="screen"></node> -->
+  
+  <!-- <arg name="map_file" default="$(find multi_robot)/maps/map.yaml"/>
+  <node pkg="map_server" name="map_server"  type="map_server" args="$(arg map_file)" />
+  <node pkg="rviz" name="rviz" type="rviz"  args="-d $(find multi_robot)/rviz/config_uwb.rviz" /> -->
+
+
+  <!-- <node pkg="tf" type="static_transform_publisher" name="map_base" args="0.0 0.0 0.0 0 0 0 0.0 world map 100" /> -->
+
+  <!-- <node pkg="rviz" name="rviz" type="rviz"  args="-d $(find multi_robot)/rviz/config_file.rviz" /> -->
+  <!-- <node pkg="rviz" name="rviz2" type="rviz"  args="-d $(find multi_robot)/rviz/turtlebot3_gazebo_model.rviz" /> -->
+  <!-- <include file="$(find multi_robot)/launch/tf_simulation_dynamic.launch"/>
+  <include file="$(find pozyx_simulation)/launch/uwb_simulation_initializing.launch"/> -->
+  <!-- <node name="rqt_joint_trajectory_controller" pkg="rqt_joint_trajectory_controller" type="rqt_joint_trajectory_controller" output="screen" /> -->
+</launch>

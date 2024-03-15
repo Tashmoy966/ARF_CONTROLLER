@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- include empty world -->
+
+  <arg name="ns" default="robot1" />
+  <arg name="x_pos" default="0.0" />
+  <arg name="y_pos" default="0.0" />
+  <arg name="yaw" default="-1.5708" />
+  <arg name="empty_env" default="true"/>
+  <arg name="indoor" default="false"/>
+  <arg name="indoor_dynamic" default="false"/>
+  <arg name="office" default="false"/>
+  <arg name="office_full" default="false"/>
+
+  <!-- spawn general model for the volta -->
+  <arg name="model" default="$(find volta_description)/urdf/volta.xacro"/>
+  <param name="robot_description" command="rosrun xacro xacro --inorder $(arg model)"/>
+
+  <!-- spawn robot-->
+  <group ns="$(arg ns)">
+    <include file="$(find volta_simulation)/launch/simulation.launch">
+      <arg name="robot_name" value="$(arg ns)"/>
+      <arg name="initX" value="$(arg x_pos)"/>
+      <arg name="initY" value="$(arg y_pos)"/>  
+      <arg name="initYaw" value="$(arg yaw)"/>
+      <arg name="empty_env" value="true"/>
+      <arg name="indoor" value="$(arg indoor)"/>
+      <arg name="indoor_dynamic" value="$(arg indoor_dynamic)"/>
+      <arg name="office" value="$(arg office)"/>
+      <arg name="office_full" value="$(arg office_full)"/>
+    </include>
+  </group>
+
+</launch>

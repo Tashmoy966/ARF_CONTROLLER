@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<launch>
+  <include file="$(find volta_simulation)/launch/gazebo.launch">
+    <arg name="empty_env" value="true"/>
+  </include>
+  <arg name="ns" default="robot1" />
+  <arg name="x_pos" default="0.0" />
+  <arg name="y_pos" default="0.0" />
+  <arg name="yaw" default="-1.5708" />
+  <arg name="empty_env" default="true"/>
+  <arg name="indoor" default="fasle"/>
+  <arg name="indoor_dynamic" default="false"/>
+  <arg name="office" default="false"/>
+  <arg name="office_full" default="false"/>
+  <include file="$(find airl_mrs)/launch/execute.launch">
+    <arg name="ns" value="robot1" />
+    <arg name="x_pos" value="1.0" />
+    <arg name="y_pos" value="1.0" />
+  </include>
+  <include file="$(find airl_mrs)/launch/execute.launch">
+    <arg name="ns" value="robot2" />
+    <arg name="x_pos" value="-1.0" />
+    <arg name="y_pos" value="1.0" />
+  </include>
+  <include file="$(find airl_mrs)/launch/execute.launch">
+    <arg name="ns" value="robot3" />
+    <arg name="x_pos" value="-1.0" />
+    <arg name="y_pos" value="-1.0" />
+  </include>
+  <include file="$(find airl_mrs)/launch/execute.launch">
+    <arg name="ns" value="robot4" />
+    <arg name="x_pos" value="1.0" />
+    <arg name="y_pos" value="-1.0" />
+  </include>
+  <!-- <arg name="gc" default="10.0"/> -->
+  <!-- <node pkg="airl_mrs" type="apf_controller.py" name="apf" args="goal_center=$(arg gc)" output="screen"></node> -->
+
+</launch>

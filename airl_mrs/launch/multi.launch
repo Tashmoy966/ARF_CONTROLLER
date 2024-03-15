@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- $(find xacro)/xacro.py -->
+  <!-- BEGIN ROBOT 1-->
+  <group ns="robot1">
+    <arg name="model" default="$(find turtlebot3_description)/urdf/turtlebot3_burger.urdf.xacro r_name:=robot1"/>
+    <param name="robot_description"
+      command="rosrun xacro xacro --inorder $(arg model)" />
+    <param name="tf_prefix" value="robot1_tf" />
+    <include file="$(find airl_mrs)/launch/one_robot.launch" >
+      <arg name="init_pose" value="-x 1 -y 1 -z 0" />
+      <arg name="robot_name"  value="robot1" />
+    </include>      
+  </group>
+
+  <!-- BEGIN ROBOT 2-->
+  <group ns="robot2">
+    <arg name="model" default="$(find turtlebot3_description)/urdf/turtlebot3_burger.urdf.xacro r_name:=robot2"/>
+    <param name="robot_description"
+      command="rosrun xacro xacro --inorder $(arg model)" />
+    <param name="tf_prefix" value="robot2_tf" />
+    <include file="$(find airl_mrs)/launch/one_robot.launch" >
+      <arg name="init_pose" value="-x -1 -y 1 -z 0" />
+      <arg name="robot_name"  value="robot2" />
+    </include>      
+  </group>
+
+  <!-- BEGIN ROBOT 3-->
+  <group ns="robot3">
+    <arg name="model" default="$(find turtlebot3_description)/urdf/turtlebot3_burger.urdf.xacro r_name:=robot3"/>
+    <param name="robot_description"
+      command="rosrun xacro xacro --inorder $(arg model)" />
+    <param name="tf_prefix" value="robot3_tf" />
+    <include file="$(find airl_mrs)/launch/one_robot.launch" >
+      <arg name="init_pose" value="-x -1 -y -1 -z 0" />
+      <arg name="robot_name"  value="robot3" />
+    </include>      
+  </group>
+
+  <!-- BEGIN ROBOT 4-->
+  <group ns="robot4">
+    <arg name="model" default="$(find turtlebot3_description)/urdf/turtlebot3_burger.urdf.xacro r_name:=robot4"/>
+    <param name="robot_description"
+      command="rosrun xacro xacro --inorder $(arg model)" />
+    <param name="tf_prefix" value="robot4_tf" />
+    <include file="$(find airl_mrs)/launch/one_robot.launch" >
+      <arg name="init_pose" value="-x 1 -y -1 -z 0" />
+      <arg name="robot_name"  value="robot4" />
+    </include>      
+  </group>
+
+  <!-- BEGIN ROBOT 5-->
+  <!-- <group ns="/robot5">
+    <param name="tf_prefix" value="robot5_tf" />
+    <include file="$(find airl_mrs)/launch/one_robot.launch" >
+      <arg name="init_pose" value="-x 0 -y -1 -z 0" />
+      <arg name="robot_name"  value="robot5" />
+    </include>      
+  </group> -->
+
+  <!-- BEGIN ROBOT 6-->
+  <!-- <group ns="/robot6">
+    <param name="tf_prefix" value="robot6_tf" />
+    <include file="$(find airl_mrs)/launch/one_robot.launch" >
+      <arg name="init_pose" value="-x 1 -y -1 -z 0" />
+      <arg name="robot_name"  value="robot6" />
+    </include>      
+  </group> -->
+
+</launch>
